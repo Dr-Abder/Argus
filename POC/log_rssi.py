@@ -274,10 +274,10 @@ def main():
     """
 
     # 1. Configuration
-    label = input("Nom de la session(ex: couloir_calme)")
-    durée =int(input("Combien de secondes"))
+    label = input("Nom de la session (ex: couloir_calme) : ")
+    durée =int(input("Combien de secondes : "))
     
-    nom_fichier = f"data_{label}.csv"
+    nom_fichier = f"data_test_{label}.csv"
     temps_debut = time.time()
 
     # 2. Ouverture du fichier

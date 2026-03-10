@@ -22,7 +22,10 @@ def analyse_rssi(fichier):
 
     # Extraction de la colonne RSSI et conversion en entier
     # (certaines lectures CSV peuvent importer les valeurs comme texte)
-    rssi = df["RSSI"].astype(int)
+    if "RSSI_dBM" in df.columns:
+        rssi = df["RSSI_dBm"].astype(int)
+    else:
+        rssi = df["RSSI"].astype(int)
 
     # Calcul de la moyenne du RSSI
     # Permet d'observer une éventuelle atténuation du signal
@@ -49,7 +52,9 @@ def analyse_rssi(fichier):
 # Analyse des deux conditions expérimentales :
 
 # 1. Pièce calme (référence / silence environnemental)
-analyse_rssi("data_test_3_couloir_IMO.csv")
+print("Analyse sans sujet")
+analyse_rssi(input("Emplacement du fichier (ex: data_test/couloir) : "))
 
+print("Analyse avec sujet")
 # 2. Passage d'une personne dans la ligne de visée
-analyse_rssi("data_test_2_couloir_MOUV.csv")
+analyse_rssi(input("Emplacement du fichier (ex: data_test/couloir) : "))
