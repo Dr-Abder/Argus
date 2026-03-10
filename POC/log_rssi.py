@@ -58,7 +58,7 @@ def capture_wifi_data():
        informations Wi-Fi récupérées.
     """
 
-    commande = ["netsh", "wlan", "show", "interfaces"]
+    commande = ["netsh.exe", "wlan", "show", "interfaces"]
     resultat = subprocess.run(commande, capture_output=True, text=True,
                               encoding="utf-8", errors="ignore")
 
